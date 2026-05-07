@@ -1,0 +1,34 @@
+# binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+tmp/
+
+# test binary
+*.test
+
+# output
+*.out
+
+# go workspace
+go.work
+go.work.sum
+
+# env
+.env
+.env.local
+.env.*.local
+
+# air
+tmp/
+build-errors.log
+
+# ide
+.vscode/
+.idea/
+
+# os
+.DS_Store
+Thumbs.db
