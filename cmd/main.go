@@ -1,13 +1,21 @@
 package main
 
-import "github.com/gofiber/fiber/v3"
+import (
+	"barber_shop/configs/database"
+	"barber_shop/internal/routes"
+
+	"github.com/gofiber/fiber/v3"
+)
+
+var x = 0
+var number int
 
 func main() {
 	app := fiber.New()
 
-	app.Get("/", func(c fiber.Ctx) error {
-		return c.SendString("yo it works")
-	})
+	database.Connect()
+
+	routes.Setup(app)
 
 	app.Listen(":3000")
 }
