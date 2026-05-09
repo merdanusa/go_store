@@ -1,6 +1,7 @@
 package database
 
 import (
+	"errors"
 	"log"
 	"os"
 
@@ -12,15 +13,26 @@ import (
 
 var DB *gorm.DB
 
-func Connect() {
+func Connect() error {
 	dsn := os.Getenv("DATABASE_URL")
+
+	if dsn == "" {
+		return errors.New("DATABASE_URL is empty")
+	}
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	DB = db
 
-	DB.AutoMigrate(&models.User{})
+	log.Println("Running migrations...")
+
+	if err := DB.AutoMigrate(&models.User{}); err != nil {
+		return err
+	}
+
+	log.Println("Database ready")
+	return nil
 }

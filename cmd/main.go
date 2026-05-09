@@ -3,13 +3,11 @@ package main
 import (
 	"go_store/cmd/router"
 	"go_store/configs/database"
+	"log"
+	"os"
 
 	"github.com/gofiber/fiber/v3"
-	"github.com/gofiber/fiber/v3/middleware/static"
 )
-
-var x = 0
-var number int
 
 func main() {
 	app := fiber.New()
@@ -18,7 +16,14 @@ func main() {
 
 	router.Setup(app)
 
-	app.Use("/", static.New("./public"))
+	app.Get("/", func(c fiber.Ctx) error {
+		return c.SendString("Hello, World!")
+	})
 
-	app.Listen(":3000")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	log.Fatal(app.Listen(":" + port))
 }
