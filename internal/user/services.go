@@ -2,6 +2,7 @@ package user
 
 import (
 	"go_store/internal/models"
+	utils "go_store/internal/shared"
 	hash "go_store/internal/shared/hash"
 )
 
@@ -19,4 +20,14 @@ func CreateUserService(data SignUpDTO) (*models.User, error) {
 	}
 
 	return CreateUserRepository(user)
+}
+
+func LoginUserService(data SignInDTO) (string, error) {
+	user, err := GetUserByEmail(data.Email)
+	if err != nil {
+
+		return "", err
+	}
+
+	return utils.GenerateToken(user)
 }

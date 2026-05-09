@@ -14,3 +14,14 @@ func CreateUserRepository(user models.User) (*models.User, error) {
 
 	return &user, nil
 }
+
+func GetUserByEmail(email string) (*models.User, error) {
+	var user models.User
+	result := database.DB.Where("email = ?", email).First(&user)
+
+	if result.Error != nil {
+		return nil, result.Error
+	}
+
+	return &user, nil
+}
