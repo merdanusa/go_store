@@ -1,7 +1,7 @@
 package user
 
 import (
-	utils "barber_shop/internal/shared"
+	utils "go_store/internal/shared"
 
 	"github.com/gofiber/fiber/v3"
 )

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"barber_shop/cmd/router"
-	"barber_shop/configs/database"
+	"go_store/cmd/router"
+	"go_store/configs/database"
 
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/middleware/static"

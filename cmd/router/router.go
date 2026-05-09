@@ -1,7 +1,7 @@
 package router
 
 import (
-	"barber_shop/internal/user"
+	"go_store/internal/user"
 
 	"github.com/gofiber/fiber/v3"
 )

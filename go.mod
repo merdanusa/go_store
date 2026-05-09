@@ -1,4 +1,4 @@
-module barber_shop
+module go_store
 
 go 1.26.1
 

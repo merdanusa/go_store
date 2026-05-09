@@ -7,7 +7,7 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
-	"barber_shop/internal/models"
+	"go_store/internal/models"
 )
 
 var DB *gorm.DB

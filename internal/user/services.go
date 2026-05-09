@@ -1,8 +1,8 @@
 package user
 
 import (
-	"barber_shop/internal/models"
-	hash "barber_shop/internal/shared/hash"
+	"go_store/internal/models"
+	hash "go_store/internal/shared/hash"
 )
 
 func CreateUserService(data SignUpDTO) (*models.User, error) {

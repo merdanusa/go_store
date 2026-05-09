@@ -1,8 +1,8 @@
 package user
 
 import (
-	"barber_shop/configs/database"
-	"barber_shop/internal/models"
+	"go_store/configs/database"
+	"go_store/internal/models"
 )
 
 func CreateUserRepository(user models.User) (*models.User, error) {
