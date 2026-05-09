@@ -1,10 +1,11 @@
 package main
 
 import (
+	"barber_shop/cmd/router"
 	"barber_shop/configs/database"
-	"barber_shop/internal/routes"
 
 	"github.com/gofiber/fiber/v3"
+	"github.com/gofiber/fiber/v3/middleware/static"
 )
 
 var x = 0
@@ -15,7 +16,9 @@ func main() {
 
 	database.Connect()
 
-	routes.Setup(app)
+	router.Setup(app)
+
+	app.Use("/", static.New("./public"))
 
 	app.Listen(":3000")
 }

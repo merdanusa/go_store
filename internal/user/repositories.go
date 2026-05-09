@@ -1,11 +1,11 @@
-package repositories
+package user
 
 import (
 	"barber_shop/configs/database"
-	models "barber_shop/internal/model"
+	"barber_shop/internal/models"
 )
 
-func CreateUser(user models.User) (*models.User, error) {
+func CreateUserRepository(user models.User) (*models.User, error) {
 	result := database.DB.Create(&user)
 
 	if result.Error != nil {
